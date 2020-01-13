@@ -1,0 +1,22 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "plugins": ["prettier", "react", "jest"],
+    "extends": [
+        "prettier",
+        "plugin:react/recommended",
+        "plugin:jest/recommended"
+    ],
+    "rules": {
+        "prettier/prettier": "error"
+    }
+}

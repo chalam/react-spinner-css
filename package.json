@@ -2,19 +2,92 @@
   "name": "react-spinner-css",
   "version": "1.0.0",
   "description": "ReactJS CSS Spinner",
-  "main": "index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rm -fr dist",
+    "build": "rollup -c",
+    "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "prettier-eslint 'src/**/*.js' --write",
+    "test": "npx jest",
+    "test:staged": "npx jest --findRelatedTests",
+    "test:watch": "npx jest --watch",
+    "test:cov": "npx jest --coverage",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "npm run test:staged",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chalam/react-spinner-css.git"
   },
-  "keywords": ["react", "css", "spinner"],
+  "keywords": [
+    "react",
+    "css",
+    "spinner"
+  ],
   "author": "chalam",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chalam/react-spinner-css/issues"
   },
-  "homepage": "https://github.com/chalam/react-spinner-css#readme"
+  "homepage": "https://github.com/chalam/react-spinner-css#readme",
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/preset-react": "^7.8.0",
+    "@storybook/addon-actions": "^5.3.1",
+    "@storybook/addon-links": "^5.3.1",
+    "@storybook/addons": "^5.3.1",
+    "@storybook/preset-create-react-app": "^1.5.1",
+    "@storybook/react": "^5.3.1",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "husky": "^4.0.6",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "dependencies": {},
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+  }
 }

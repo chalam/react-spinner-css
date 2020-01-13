@@ -1,0 +1,19 @@
+{
+  "name": "client-exp",
+  "version": "1.0.0",
+  "description": "client-exp example",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-spinner-css": "file:.."
+  }
+}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <style>
+    $
+    [object Object]
+  </style>,
+  <div
+    class="loadingio-spinner-dual-ring-3939qzy8hs"
+  >
+    <div
+      class="ldio-k8mq2p0lvt9"
+    >
+      <div />
+      <div>
+        <div />
+      </div>
+    </div>
+  </div>,
+]
+`;
